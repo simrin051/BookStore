@@ -1,13 +1,48 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+  --primary-color: #21B6A8;
+  --secondary-color: white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family: 'Poppins';
+  font-size: 100%;
+}
+
+.auth-container {
+  border-color: 2px solid #21B6A8;
+  border-width: 2px;
+}
+
+.auth-container #submit-form {
+  width: 30vw;
+  height: 40vh;
+  margin: auto;
+  margin-top: 0px;
+  border-color: 2px solid white;
+}
+
+.form-heading {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.signInLinks {
+  font-size: 1rem;
+  text-align: center;
+  color: var(--primary-color);
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  gap: 6px;
+  grid-auto-flow: column;
+  display: grid;
+}
+
+InputText {
+  margin-bottom: 5px;
+  display: none;
 }
