@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+
 :root {
   --primary-color: #21B6A8;
   --secondary-color: white;
@@ -45,4 +46,8 @@ body {
 InputText {
   margin-bottom: 5px;
   display: none;
+}
+
+.align-text-center {
+  text-align: center;
 }
