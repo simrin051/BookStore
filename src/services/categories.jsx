@@ -1,5 +1,4 @@
 import axios from "axios";
-import { categories } from './../backend/db/categories';
 
 export const FetchCategoryList = async (productDispatch) => {
     try {

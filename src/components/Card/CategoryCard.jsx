@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export const CategoryCard = ({ category }) => {
     const {
         _id,
@@ -6,9 +8,9 @@ export const CategoryCard = ({ category }) => {
         image
     } = category;
     return (<div class="category">
-        <a href="/productlisting/productlisting.html">
+        <Link to="/products">
             <img src={image} />
             <div className="topicname">{category.categoryName}</div>
-        </a>
+        </Link>
     </div>);
 }

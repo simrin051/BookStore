@@ -1,57 +1,38 @@
 import { useProductContext } from "../../contexts/products";
 import { ProductCard } from './../../components/Card/ProductCard';
 import './ProductList.css';
+import { DataFilter, getFilteredData, getRatingFilteredData, getSortedData } from './DataFilter';
+import { products } from './../../backend/db/products';
 
 export const ProductList = () => {
-    const {
-        productState: { productList },
-    } = useProductContext();
-
+    const { state } = useProductContext();
+    const sortedData = getSortedData(state, state.productList);
+    let filteredData = getRatingFilteredData(state, sortedData);
+    const checkWhetherProductIsInTheCart = (id, products) => {
+        if (products) {
+            return products.find((item) => item._id === id);
+        }
+        return false;
+    }
     return (
-        /** Filters **/
         <div>
             <div>
-                <div class="product-filters">
-                    <div class="filter-clear">
-                        <h3>FILTERS</h3>
-                        <h6 class="clear_all">CLEAR ALL</h6>
-                    </div>
-                    <div class="category-filter">
-                        <h3>CATEGORY</h3>
-                        <label for="comedy" class="category-label">
-                            <input type="checkbox" id="comedy" name="comedy" value="Comedy" />
-                            Comedy
-                        </label>
-                        <label for="fictional" class="category-label">
-                            <input type="checkbox" id="fictional" name="fictional" value="fictional" />
-                            Fictional
-                        </label>
-                        <label for="nonfictional" class="category-label">
-                            <input type="checkbox" id="nonfictional" name="nonfictional" value="nonfictional" />
-                            Non Fictional
-                        </label>
-                        <label for="motivational" class="category-label">
-                            <input type="checkbox" id="motivational" name="motivational" value="motivational" />
-                            Motivational
-                        </label>
-                    </div>
-                    <div class="availability-filter">
-                        <h3>AVAILABILITY</h3>
-                        <label for="comedy" class="category-label">
-                            <input type="checkbox" id="comedy" name="comedy" value="Comedy" />
-                            Include out of stock
-                        </label>
-                        <label for="fictional" class="category-label">
-                            <input type="checkbox" id="fictional" name="fictional" value="fictional" />
-                            Fast delivery only
-                        </label>
-                    </div>
+                <div class="filter-section">
+                    <DataFilter />
                 </div>
-                <div className="items-container">
-                    {productList.map((product) => {
-                        return <ProductCard key={product._id} product={product} />;
-                    })}
-                </div>
+                {filteredData.length === 0 ? (
+                    <h6 className=''>
+                        No Products Found
+                    </h6>
+                ) : (
+                    <div className='items-container'>
+                        {filteredData.map((product) => {
+                            console.log("product title " + product.title);
+                            console.log("checkWhetherProductIsInTheCart " + checkWhetherProductIsInTheCart(product));
+                            return <ProductCard class="product" isAddedToCart={checkWhetherProductIsInTheCart(product._id, products)} key={product._id} product={product} />;
+                        })}
+                    </div>
+                )}
             </div>
         </div>
     );

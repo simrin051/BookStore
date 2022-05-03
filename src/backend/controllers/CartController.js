@@ -33,7 +33,9 @@ export const getCartItemsHandler = function (schema, request) {
  * */
 
 export const addItemToCartHandler = function (schema, request) {
+
   const userId = requiresAuth.call(this, request);
+  console.log(" user ID " + userId);
   try {
     if (!userId) {
       return new Response(
@@ -45,6 +47,7 @@ export const addItemToCartHandler = function (schema, request) {
       );
     }
     const userCart = schema.users.findBy({ _id: userId }).cart;
+    console.log(" user cart " + userCart);
     const { product } = JSON.parse(request.requestBody);
     userCart.push({
       ...product,
@@ -124,6 +127,7 @@ export const updateCartItemHandler = function (schema, request) {
         if (product._id === productId) {
           product.qty += 1;
           product.updatedAt = formatDate();
+          console.log(" backend increment " + product.qty);
         }
       });
     } else if (action.type === "decrement") {
@@ -131,6 +135,7 @@ export const updateCartItemHandler = function (schema, request) {
         if (product._id === productId) {
           product.qty -= 1;
           product.updatedAt = formatDate();
+          console.log(" backend decrement " + product.qty);
         }
       });
     }

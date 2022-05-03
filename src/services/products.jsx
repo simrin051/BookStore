@@ -2,8 +2,6 @@ import axios from "axios";
 
 export const FetchProductList = async (productDispatch) => {
     try {
-        console.log("inside services");
-        console.log("inside fetch product list");
         const res = await axios.get("/api/products");
         if (res.status === 200)
             productDispatch({
@@ -23,3 +21,95 @@ export const FetchProduct = async (setProduct, productId) => {
         console.log(e.error);
     }
 };
+
+export const AddToCart = async (product, productDispatch) => {
+    try {
+        console.log("product " + JSON.stringify(product));
+        const res = await axios.post(`/api/user/cart`, { product });
+        if (res.status === 201) {
+            productDispatch({
+                type: "ADD_TO_CART",
+                payload: res.data.cart,
+            });
+        }
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+export const removeProductFromCart = async (product, productDispatch) => {
+    try {
+        console.log("product " + JSON.stringify(product));
+        const res = await axios.delete(`/api/user/cart/` + product._id);
+        if (res.status === 200) {
+            productDispatch({
+                type: "REMOVE_FROM_CART",
+                payload: res.data.cart
+            });
+        }
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+export const addProductToWishList = async (product, productDispatch) => {
+    try {
+        console.log("wishlist product " + JSON.stringify(product));
+        const res = await axios.post(`/api/user/wishlist`, { product });
+        if (res.status === 201) {
+            productDispatch({
+                type: "ADD_TO_WISHLIST",
+                payload: res.data.wishlist,
+            });
+            console.log("add to wishlist " + res.data.wishlist);
+        }
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+export const removeProductFromWishlist = async (product, productDispatch) => {
+    try {
+
+        console.log("product " + JSON.stringify(product));
+        const res = await axios.delete(`/api/user/wishlist/${product._id}`);
+        console.log(" Response " + res);
+        if (res.status === 200) {
+            productDispatch({
+                type: "REMOVE_FROM_WISHLIST",
+                payload: res.data.wishlist
+            });
+            console.log("Deleted the product from wishlist");
+        }
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+export const FetchWishList = async (productDispatch) => {
+    try {
+        console.log("fetch wish list service call");
+        const res = await axios.get("/api/user/wishlist");
+        if (res.status === 200)
+            productDispatch({
+                type: "GET_WISHLIST",
+                payload: res.data.wishlist,
+            });
+    } catch (e) {
+        console.log(e.error);
+    }
+
+}
+
+export const updateQtyOfProduct = async (product, productDispatch, type) => {
+    try {
+        const res = await axios.post(`/api/user/cart/${product._id}`, { action: { type: type } });
+        if (res.status === 200)
+            productDispatch({
+                type: "UPDATE_QTY",
+                payload: res.data.cart,
+            });
+    } catch (e) {
+        console.log(e.error);
+    }
+}

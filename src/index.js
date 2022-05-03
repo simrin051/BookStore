@@ -5,6 +5,8 @@ import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom'
 import { makeServer } from "./server";
 import { ProductContextProvider } from './contexts/products';
+import { FilteredProductContextProvider } from './contexts/ProductsFilter';
+import { UserContextProvider } from './contexts/user';
 
 //Call make server
 makeServer();
@@ -12,9 +14,13 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <ProductContextProvider>
-        <App />
-      </ProductContextProvider>
+      <UserContextProvider>
+        <FilteredProductContextProvider>
+          <ProductContextProvider>
+            <App />
+          </ProductContextProvider>
+        </FilteredProductContextProvider>
+      </UserContextProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

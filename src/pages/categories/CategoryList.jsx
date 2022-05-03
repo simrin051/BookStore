@@ -4,10 +4,9 @@ import './CategoryList.css';
 
 export const CategoryList = () => {
     const {
-        productState: { categoryList },
+        state: { categoryList },
     } = useProductContext();
 
-    console.log("inside category list");
     return (
         <div>
             <h2 class="align-text-center primary-color">Categories</h2>

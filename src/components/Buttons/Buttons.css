@@ -1,0 +1,11 @@
+.like-btn {
+    color: #D3D3D3;
+}
+
+.like-btn:checked {
+    color: #b22222;
+}
+
+button.secondary-btn {
+    color: var(--primary-color) !important;
+}

@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 
-const InputText = ({ value, onChange, label }) => {
+const InputText = ({ id, value, onChange, label }) => {
   return (
     <div className="form-field">
       <label className="input-label">{label}</label>
-      <input type="text" value={value} onChange={onChange} />
+      <input type="text" id={id} value={value} onChange={onChange} />
     </div>
   );
 };
 
-const InputPassword = ({ value, onChange, label }) => {
+const InputPassword = ({ id, value, onChange, label }) => {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="form-field">
       <label className="input-label">{label}</label>
       <input
         type="password"
-        placeholder="password"
+        id={id}
         value={value}
         onChange={onChange}
       />

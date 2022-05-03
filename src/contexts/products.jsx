@@ -1,19 +1,25 @@
 
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { FetchCategoryList } from "../services/categories";
-import { FetchProductList } from "../services/products";
-//import { productStateReducer } from "../reducers/productStateReducer.js";
-//import { fetchCategories, fetchProductList } from "../services";
+import { FetchProductList, FetchWishList } from "../services/products";
 import { productStateReducer } from './../reducers/productStateReducer';
-
 
 const ProductContext = createContext();
 const ProductContextProvider = ({ children }) => {
     const initialProductState = {
         productList: [],
-        categoryList: []
+        categoryList: [],
+        orders: [],
+        itemsInCart: [],
+        itemsInWishList: [],
+        sortBy: 'LOW_TO_HIGH_PRICE',
+        ratingBy: '3',
+        dataFilter: {
+            filterByCategories: [],
+        },
+        applySearch: '',
     };
-    const [productState, productDispatch] = useReducer(
+    const [state, productDispatch] = useReducer(
         productStateReducer,
         initialProductState
     );
@@ -21,9 +27,10 @@ const ProductContextProvider = ({ children }) => {
     useEffect(() => {
         FetchProductList(productDispatch);
         FetchCategoryList(productDispatch);
+        FetchWishList(productDispatch);
     }, []);
     return (
-        <ProductContext.Provider value={{ productState, productDispatch }}>
+        <ProductContext.Provider value={{ state, productDispatch }}>
             {children}
         </ProductContext.Provider>
     );
