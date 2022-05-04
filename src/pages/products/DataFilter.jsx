@@ -42,6 +42,11 @@ export const getSortedData = (state, data) => {
 
 
 export const getRatingFilteredData = (state, data) => {
+    if (state.dataFilter.filterByCategories.length !== 0)
+        data = data.filter((product) =>
+            state.dataFilter.filterByCategories.includes(product.categoryName),
+        );
+
     data = data.filter((product) =>
         product.rating >= state.ratingBy
     );
