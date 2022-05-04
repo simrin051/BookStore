@@ -1,5 +1,4 @@
 export const authenticationReducer = (state, { type, payload }) => {
-    console.log('payload token ' + payload.token);
     switch (type) {
         case "LOGIN_USER": return {
             ...state,
@@ -54,15 +53,7 @@ export const errorReducer = (state, { payload, type }) => {
         case "ERROR_PASSWORD": return {
             ...state,
             password: payload
-        }/** 
-        case "ERROR_FIRSTNAME_LENGTH": return {
-            ...state,
-            firstName: payload
         }
-        case "ERROR_LASTNAME_LENGTH": return {
-            ...state,
-            lastName: payload
-        }**/
         default:
             break;
     }

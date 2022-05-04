@@ -1,18 +1,9 @@
-import { useState, useReducer, useEffect } from "react";
+import { useReducer } from "react";
 import { formsReducer } from "../../../reducers/authenticationReducer";
-//import { onInputChange } from "../AuthUtils";
 import { InputText, InputPassword } from './../../../components/FormFields/InputField';
 import { useLocation } from 'react-router-dom';
 import { useUserContext } from "../../../contexts/user";
-import { CreateUser } from './../../../services/auth';
 import { errorReducer } from './../../../reducers/authenticationReducer';
-
-const errorState = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: ""
-}
 
 export const SignUp = () => {
 
@@ -57,8 +48,6 @@ export const SignUp = () => {
             password: formState.password
         }
         const checkForFormValidity = () => {
-
-            var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
             if (!validEmailRegex.test(formState.email)) {
                 errorDispatch({
                     type: "ERROR_EMAIL",

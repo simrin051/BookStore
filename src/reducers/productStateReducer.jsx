@@ -6,7 +6,6 @@ export const productStateReducer = (state, { type, payload }) => {
         case "GET_CATEGORIES": return { ...state, categoryList: payload };
         case "FILTER_PRODUCTS_BY_CATEGORY": return state.dataFilter.filterByCategories.includes(payload)
             ? {
-                /** This block will get executed if uncheck event happens because the payload will already be there in the state **/
                 ...state,
                 dataFilter: {
                     ...state.dataFilter,
@@ -16,7 +15,6 @@ export const productStateReducer = (state, { type, payload }) => {
                 },
             }
             : {
-                /** This block will get executed if check event happens because the payload is not there in the state. state.dataFilter.filterByCategories gets concatenated with new payload **/
                 ...state,
                 dataFilter: {
                     ...state.dataFilter,
@@ -41,7 +39,7 @@ export const productStateReducer = (state, { type, payload }) => {
         case 'GET_WISHLIST': return {
             ...state, itemsInWishList: payload
         }
-        case 'ADD_TO_WISHLIST': console.log("items in reducer wishlist" + payload); return {
+        case 'ADD_TO_WISHLIST': return {
             ...state, itemsInWishList: payload
         }
         case 'REMOVE_FROM_WISHLIST': return {

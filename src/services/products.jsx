@@ -24,7 +24,6 @@ export const FetchProduct = async (setProduct, productId) => {
 
 export const AddToCart = async (product, productDispatch) => {
     try {
-        console.log("product " + JSON.stringify(product));
         const res = await axios.post(`/api/user/cart`, { product });
         if (res.status === 201) {
             productDispatch({
@@ -39,7 +38,6 @@ export const AddToCart = async (product, productDispatch) => {
 
 export const removeProductFromCart = async (product, productDispatch) => {
     try {
-        console.log("product " + JSON.stringify(product));
         const res = await axios.delete(`/api/user/cart/` + product._id);
         if (res.status === 200) {
             productDispatch({
@@ -54,14 +52,12 @@ export const removeProductFromCart = async (product, productDispatch) => {
 
 export const addProductToWishList = async (product, productDispatch) => {
     try {
-        console.log("wishlist product " + JSON.stringify(product));
         const res = await axios.post(`/api/user/wishlist`, { product });
         if (res.status === 201) {
             productDispatch({
                 type: "ADD_TO_WISHLIST",
                 payload: res.data.wishlist,
             });
-            console.log("add to wishlist " + res.data.wishlist);
         }
     } catch (e) {
         console.log(e);
@@ -70,16 +66,12 @@ export const addProductToWishList = async (product, productDispatch) => {
 
 export const removeProductFromWishlist = async (product, productDispatch) => {
     try {
-
-        console.log("product " + JSON.stringify(product));
         const res = await axios.delete(`/api/user/wishlist/${product._id}`);
-        console.log(" Response " + res);
         if (res.status === 200) {
             productDispatch({
                 type: "REMOVE_FROM_WISHLIST",
                 payload: res.data.wishlist
             });
-            console.log("Deleted the product from wishlist");
         }
     } catch (e) {
         console.log(e);
@@ -88,7 +80,6 @@ export const removeProductFromWishlist = async (product, productDispatch) => {
 
 export const FetchWishList = async (productDispatch) => {
     try {
-        console.log("fetch wish list service call");
         const res = await axios.get("/api/user/wishlist");
         if (res.status === 200)
             productDispatch({

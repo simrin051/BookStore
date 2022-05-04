@@ -31,7 +31,6 @@ export const SignIn = () => {
         /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
     );
 
-
     const onFocusClearError = (type) => {
         console.log(" Inside on focus clear error " + type);
         errorDispatch({

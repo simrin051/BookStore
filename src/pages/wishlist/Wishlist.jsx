@@ -2,7 +2,7 @@ import { useProductContext } from "../../contexts/products"
 import { WishListItemCard } from './../../components/Card/WishListItemCard';
 
 export const WishList = () => {
-    const { state: { itemsInWishList }, productDispatch } = useProductContext();
+    const { state: { itemsInWishList } } = useProductContext();
     return (
         <div class="align-text-center">
             <span>Number of items in wishlist {itemsInWishList.length}</span>

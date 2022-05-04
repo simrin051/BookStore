@@ -2,19 +2,6 @@ import { useProductContext } from '../../contexts/products';
 import './ProductList.css';
 import { useState } from 'react';
 
-
-let sum = 0;
-export const noOfRatingStarsChecked = () => {
-
-    const ratingStars = document.querySelectorAll(
-        '.rating-star-input',
-    );
-    ratingStars.forEach((star) => {
-        if (star.checked) sum += 1;
-    });
-    return sum;
-}
-
 export const getFilteredData = (state, data) => {
     let newData = [...data];
 
@@ -58,7 +45,6 @@ export const getRatingFilteredData = (state, data) => {
 export const DataFilter = () => {
     const { state, productDispatch } = useProductContext();
     const [filterOpen, setFilterOpen] = useState(false);
-    const [ratings, setRatings] = useState(0);
 
     const sortByPrice = (e) => {
         productDispatch({ type: 'SORT', payload: e.target.value }); /** LOW_TO_HIGH_PRICE is passed as payload. This  **/
@@ -159,7 +145,6 @@ export const DataFilter = () => {
                 ></input>{" "}
                 1 Star & above
             </label>
-
         </div>
     </div >
     );
