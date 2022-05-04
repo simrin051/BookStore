@@ -29,7 +29,7 @@ export const validateInput = (name, value) => {
     return { hasError, error }
 }
 
-
+/**
 export const onInputChange = (name, value, dispatch, formState) => {
     const { hasError, error } = validateInput(name, value)
     let isFormValid = true
@@ -52,3 +52,4 @@ export const onInputChange = (name, value, dispatch, formState) => {
         data: { name, value, hasError, error, isFormValid },
     })
 }
+ */

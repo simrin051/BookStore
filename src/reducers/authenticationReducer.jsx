@@ -14,21 +14,57 @@ export const authenticationReducer = (state, { type, payload }) => {
     }
 }
 
-export const formsReducer = (state, action) => {
-    switch (action.type) {
-        case "UPDATE_FORM":
-            const { name, value, hasError, error, isFormValid } = action.data
-            console.log("Action Data " + JSON.stringify(action.data));
-            return {
-                ...state,
-                // update the state of the particular field,
-                // by retaining the state of other fields
-                [name]: { ...state[name], value, hasError, error },
-                isFormValid,
-            }
+export const formsReducer = (state, { type, payload }) => {
+    switch (type) {
+        case "SET_FIRSTNAME": return {
+            ...state,
+            firstName: payload
+        }
+        case "SET_LASTNAME": return {
+            ...state,
+            lastName: payload
+        }
+        case "SET_EMAIL": return {
+            ...state,
+            email: payload
+        }
+        case "SET_PASSWORD": return {
+            ...state,
+            password: payload
+        }
         default:
-            return state
+            break;
     }
 }
 
+export const errorReducer = (state, { payload, type }) => {
+    switch (type) {
+        case "ERROR_FIRSTNAME": return {
+            ...state,
+            firstName: payload
+        }
+        case "ERROR_LASTNAME": return {
+            ...state,
+            lastName: payload
+        }
+        case "ERROR_EMAIL": return {
+            ...state,
+            email: payload
+        }
+        case "ERROR_PASSWORD": return {
+            ...state,
+            password: payload
+        }/** 
+        case "ERROR_FIRSTNAME_LENGTH": return {
+            ...state,
+            firstName: payload
+        }
+        case "ERROR_LASTNAME_LENGTH": return {
+            ...state,
+            lastName: payload
+        }**/
+        default:
+            break;
+    }
 
+}
