@@ -2,7 +2,6 @@ import { useProductContext } from "../../contexts/products";
 import { removeProductFromWishlist } from "../../services/products";
 
 export const WishListItemCard = ({ product }) => {
-    console.log("inside wish list item card");
     const { state, productDispatch } = useProductContext();
 
     return (

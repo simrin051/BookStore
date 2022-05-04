@@ -32,7 +32,6 @@ export const SignIn = () => {
     );
 
     const onFocusClearError = (type) => {
-        console.log(" Inside on focus clear error " + type);
         errorDispatch({
             type: type,
             payload: ""
@@ -47,7 +46,6 @@ export const SignIn = () => {
                     type: "ERROR_EMAIL",
                     payload: "Please enter valid email"
                 })
-                console.log(" email id is invalid");
                 errorFlag = true;
             }
             if (formState.password === '' || formState.password.length < 8) {

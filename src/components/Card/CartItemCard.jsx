@@ -13,7 +13,6 @@ const addToWishList = (product, productDispatch) => {
 
 const CountQuantityOfProduct = (product, productDispatch, type) => {
     const { cart: userCart } = updateQtyOfProduct(product, productDispatch, type);
-    console.log(" updated" + product.qty);
 }
 
 export const CartItemCard = ({ product }) => {

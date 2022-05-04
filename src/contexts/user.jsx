@@ -17,8 +17,6 @@ export const UserContextProvider = ({ children }) => {
 
     const signUpUser = async (data, fromPathNavigate) => {
         try {
-            console.log("inside providers");
-            console.log("Data " + data);
             const response = await axios.post(`/api/auth/signup`, JSON.stringify(data));
             if (response.status == 201) {
                 localStorage?.setItem(
@@ -33,7 +31,6 @@ export const UserContextProvider = ({ children }) => {
                     payload: { token: response.data.encodedToken, userName: response.data.createdUser.email }
                 });
                 axios.defaults.headers.common['Authorization'] = response.data.encodedToken;
-                console.log(" From path navigate " + fromPathNavigate);
                 navigation(fromPathNavigate);
             }
         } catch (err) {
@@ -42,11 +39,7 @@ export const UserContextProvider = ({ children }) => {
     }
     const loginUser = async (data, from, setSigninError, fromPathNavigate) => {
         try {
-            console.log("inside login user method");
-            console.log(" Data inside " + JSON.stringify(data));
             const response = await axios.post(`/api/auth/login`, (data));
-            console.log("inside login user");
-            console.log(JSON.stringify(response.data.encodedToken));
             if (response.status == 200) {
                 localStorage?.setItem(
                     'session',

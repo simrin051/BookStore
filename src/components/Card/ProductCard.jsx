@@ -7,8 +7,6 @@ import { addProductToWishList } from './../../services/products';
 
 
 export const ProductCard = ({ product, isAddedToCart }) => {
-  console.log("inside product card");
-  console.log(" is added to cart " + isAddedToCart);
   const { state, productDispatch } = useProductContext();
 
   const {
