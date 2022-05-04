@@ -12,8 +12,8 @@ const ProductContextProvider = ({ children }) => {
         orders: [],
         itemsInCart: [],
         itemsInWishList: [],
-        sortBy: 'LOW_TO_HIGH_PRICE',
-        ratingBy: '3',
+        sortBy: '',
+        ratingBy: '',
         dataFilter: {
             filterByCategories: [],
         },

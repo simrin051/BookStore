@@ -32,24 +32,26 @@ export const getSortedData = (state, data) => {
             return Number(product2.price) - Number(product1.price);
         });
     }
-    if (state.sortBy === 'LOW_TO_HIGH_PRICE') {
+    else if (state.sortBy === 'LOW_TO_HIGH_PRICE') {
         return [...data].sort((product1, product2) => {
             return Number(product1.price) - Number(product2.price);
         });
     }
-
+    return data;
 };
 
 
 export const getRatingFilteredData = (state, data) => {
-    if (state.dataFilter.filterByCategories.length !== 0)
+    if (state.dataFilter.filterByCategories.length !== 0) {
         data = data.filter((product) =>
             state.dataFilter.filterByCategories.includes(product.categoryName),
         );
-
-    data = data.filter((product) =>
-        product.rating >= state.ratingBy
-    );
+    }
+    if (state.ratingBy != '') {
+        data = data.filter((product) =>
+            product.rating >= state.ratingBy
+        );
+    }
     return data;
 }
 

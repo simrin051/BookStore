@@ -49,10 +49,11 @@ export const productStateReducer = (state, { type, payload }) => {
         }
         case 'CLEAR_ALL_FILTERS': return {
             ...state,
+            sortBy: '',
+            ratingBy: '',
             dataFilter: {
-                filterByCategories: [],
-            },
-            sortBy: ''
+                filterByCategories: []
+            }
         }
         case 'FILTER_PRODUCTS_BY_RATING': return {
             ...state, ratingBy: payload
