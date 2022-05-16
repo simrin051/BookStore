@@ -1,0 +1,111 @@
+.featured-categories {
+    --featured-category-overlay-bg-color: rgba(255, 255, 255, 0.8);
+    --featured-category-overlay-text-color: black;
+}
+
+.adv-container {
+    display: flex;
+    justify-content: center;
+    font-style: italic;
+}
+
+.adv-container img {
+    margin: auto;
+    width: 80vw;
+    height: 50vh;
+}
+
+.featured-categories {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: 56rem;
+    margin: auto;
+    margin-bottom: 70px !important;
+    box-sizing: border-box;
+    font-style: italic;
+}
+
+.featured-categories>.category {
+    column-gap: 10px;
+    text-align: center;
+    flex: 1 1 300px;
+}
+
+.category {
+    width: 350px;
+    height: 350px;
+    position: relative;
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+
+}
+
+.category img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.topicname {
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+    background-color: var(--featured-category-overlay-bg-color);
+    color: var(--featured-category-overlay-text-color);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    font-style: italic;
+    font-size: 25px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .adv-container {
+        display: flex;
+        justify-content: center;
+        font-style: italic;
+    }
+
+    .adv-container img {
+        margin: auto;
+        width: 100vw;
+        height: 50vh;
+    }
+
+    .featured-categories {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 5px;
+        width: 56rem;
+        margin: auto;
+        font-style: italic;
+    }
+
+    .category {
+        width: 95vw;
+        margin-left: 5px;
+        margin-right: 5px;
+        height: 350px;
+        position: relative;
+        text-align: center;
+        color: var(--primary-color);
+        font-size: 2rem;
+    }
+
+    .logo {
+        text-align: center;
+        font-style: italic;
+        font-size: 25px;
+    }
+}
