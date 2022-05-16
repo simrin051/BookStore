@@ -2,7 +2,6 @@ import { useProductContext } from "../../contexts/products";
 import { CartItemCard } from './../../components/Card/CartItemCard';
 
 export const CartList = () => {
-    console.log("inside cart list");
     const { state } = useProductContext();
     const cartProducts = state.itemsInCart;
     return (<div class="align-text-center">
