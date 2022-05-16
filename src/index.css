@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins';
+  font-size: 100%;
+  color: var(--primary-color);
+}
+
+.auth-container {
+  border-color: 2px solid #21B6A8;
+  border-width: 2px;
+}
+
+.auth-container #submit-form {
+  width: 30vw;
+  height: 40vh;
+  margin: auto;
+  margin-top: 0px;
+  border-color: 2px solid white;
+}
+
+.form-heading {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.signInLinks {
+  font-size: 1rem;
+  text-align: center;
+  color: var(--primary-color);
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  gap: 6px;
+  grid-auto-flow: column;
+  display: grid;
+}
+
+InputText {
+  margin-bottom: 5px;
+  display: none;
+}
+
+.align-text-center {
+  text-align: center;
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.primary-color {
+  color: var(--primary-color)
+}
+
+.badge, .vertical-badge {
+  color: var(--ternary-color);
+}
+
+.card-container-horizontal, .card-container-vertical {
+  border: 2px solid var(--primary-color);
+}
+
+.card-container-vertical {
+  padding-bottom: 5px;
+}
+
+.wish-btn {
+  margin-right: 5px;
+}
+
+.btn-close {
+  position: absolute;
+  top: 0;
+  font-size: 2rem;
+  right: -20px;
+  z-index: 1;
+  outline: none;
+}
+
+.set-quantity {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.text-invalid-msg {
+  color: #FF2E2E;
+  font-size: 1rem;
+}
+
+.incorrectcredentials {
+  color: #ff5349;
+  text-align: center !important;
+  display: flex;
+  justify-content: center;
+}
+
+.signUpLinks {
+  text-align: center;
+}
+
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.image-badge-container {
+  background-color: red;
+  position: relative;
+  height: 13rem;
+  width: auto;
+  padding: 0px;
+  margin: 0px;
+}
+
+@media screen and (max-width: 600px) {
+  #submit-form.form-container {
+    width: 80vw !important;
+  }
+}

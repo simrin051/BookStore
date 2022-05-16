@@ -1,0 +1,130 @@
+.logo-link {
+    text-decoration: none;
+
+}
+
+a .logo {
+    font-size: 1.5625rem;
+}
+
+nav {
+    width: 100%;
+    background-color: var(--primary-color);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding-top: 8px;
+}
+
+
+footer {
+    width: 100%;
+    bottom: 0px !important;
+    margin-bottom: 0px !important;
+    background-color: var(--secondary-color);
+    text-align: center;
+    padding-top: 8px;
+    width: 100vw !important;
+    height: 3.125rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.padding-0 {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.margin-0 {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.align-text-center {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0.5rem;
+    overflow: hidden;
+}
+
+.nav-icon {
+    display: block;
+    color: var(--ternary-color);
+    text-align: center;
+    padding: 10px;
+    font-size: small;
+    text-decoration: none;
+}
+
+.iconbadge {
+    background-color: #E7869E;
+}
+
+
+.sidebar .nav-links {
+    display: grid;
+    align-self: center;
+}
+
+#vertical-sidebar {
+    display: none;
+}
+
+#horizontal-sidebar-sm {
+    display: none;
+}
+
+@media only screen and (max-width: 1024px) {
+    .logo {
+        font-size: 15px !important;
+        font-weight: 600;
+    }
+
+    nav ul li a {
+        float: none;
+        /**  font-size: 10px !important; **/
+    }
+
+    #horizontal-navbar {
+        display: none;
+    }
+
+    #horizontal-sidebar-sm {
+        display: block;
+    }
+
+    #horizontal-sidebar-sm .sidebar .nav-links li i {
+        margin-right: 5px;
+    }
+
+    #horizontal-sidebar-sm .sidebar .nav-links li Link {
+        font-size: 1rem;
+    }
+
+    #sidebar {
+        width: 40vw;
+        padding: 5px;
+        height: 100%;
+        display: none;
+        left: 0px;
+        top: 0px;
+        position: fixed;
+        background-color: var(--primary-color);
+    }
+
+    #sidebar .nav-links {
+        display: grid;
+        align-self: center;
+        position: fixed;
+        font-size: 5rem;
+    }
+
+    #wish-icon, #cart-icon {
+        margin-right: 1rem;
+    }
+}
