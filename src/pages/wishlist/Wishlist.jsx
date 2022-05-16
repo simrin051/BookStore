@@ -5,9 +5,11 @@ export const WishList = () => {
     const { state: { itemsInWishList } } = useProductContext();
     return (
         <div class="align-text-center">
-            <span>Number of items in wishlist {itemsInWishList.length}</span>
+            {itemsInWishList.length == 0 ? <span>Your wishlist is empty, continue shopping.</span> :
+                <span>Number of items in wishlist {itemsInWishList.length}</span>}
+
             {itemsInWishList.map((product) => {
-                return <WishListItemCard class="product" key={product._id} product={product} />
+                return <WishListItemCard className="product" key={product._id} product={product} />
             })}
         </div>
     )
