@@ -10,7 +10,7 @@ export const CategoryCard = ({ category }) => {
     return (<div class="category">
         <Link to="/products">
             <img src={image} />
-            <div className="topicname">{category.categoryName}</div>
+            <div className="topicname">{categoryName}</div>
         </Link>
     </div>);
 }
