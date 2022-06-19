@@ -1,16 +1,17 @@
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { AddToWishlist } from "../Buttons/AddToWishlist";
 import { AddToCart, AddToCartBtn } from './../Buttons/AddToCart';
 import '../../pages/products/ProductList.css';
 import { useProductContext } from "../../contexts/products";
 import { addProductToWishList } from './../../services/products';
-
+import { useUserContext } from "../../contexts/user";
 
 export const ProductCard = ({ product, isAddedToCart }) => {
   console.log("inside product card");
   console.log(" is added to cart " + isAddedToCart);
   const { state, productDispatch } = useProductContext();
-
+  const { loginUser, state: { token } } = useUserContext();
+  const navigate = useNavigate();
   const {
     _id,
     title,
@@ -26,7 +27,7 @@ export const ProductCard = ({ product, isAddedToCart }) => {
       </div>
       <div class="item-details">
         <div class="item-title">{title}
-          <i class="fr fa-solid fa-heart" onClick={() => addProductToWishList(product, productDispatch)} ></i>
+          <i class="fr fa-solid fa-heart" onClick={() => token?addProductToWishList(product, productDispatch):navigate("/signin")} ></i>
         </div>
         <div class="item-price">Rs{" "}{price}</div>
         <div class="item-rating">{rating}{" "}<i class="fa-solid fa-star"></i></div>
