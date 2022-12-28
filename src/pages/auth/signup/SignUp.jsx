@@ -23,7 +23,6 @@ export const SignUp = () => {
     }
     const [formState, formDispatch] = useReducer(formsReducer, initialState);
     const [errorState, errorDispatch] = useReducer(errorReducer, errorInitialState);
-    console.log(" Error state " + JSON.stringify(errorState));
     const validEmailRegex = RegExp(
         /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
     );
@@ -31,7 +30,6 @@ export const SignUp = () => {
     const { signUpUser } = useUserContext();
 
     const onFocusClearError = (type) => {
-        console.log(" Inside on focus clear error " + type);
         errorDispatch({
             type: type,
             payload: ""
@@ -53,7 +51,6 @@ export const SignUp = () => {
                     type: "ERROR_EMAIL",
                     payload: "Please enter valid email"
                 })
-                console.log(" email id is invalid");
                 errorFlag = true;
             }
             if (formState.password === '' || formState.password.length < 8) {
